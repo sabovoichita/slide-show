@@ -84,7 +84,8 @@ function initEvents() {
     }
   });
 
-  setInterval(displayNextImage, 10000);
+  const minutes = 60;
+  setInterval(displayNextImage, 1000 * 60 * minutes);
 }
 
 initEvents();
