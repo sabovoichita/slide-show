@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide Show</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/clock.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="form-body row">
+        <div class="content scroll-hover">
+          <div id="slides"></div>
+        </div>
+        <div class="fit"></div>
+      </div>
+      <div id="actions">
+        <input type="file" accept="image/*" multiple />
+        <div id="logs"></div>
+      </div>
+    </div>
+    <script src="./js/utils.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+:root {
+  --rootPaddingTop: 5px;
+  --rootPaddingRight: 5px;
+  --rootPaddingBottom: 5px;
+  --rootPaddingLeft: 5px;
+  --pageBackgroundColor: #000;
+  /*--pageBackgroundImgOpacity: 0;*/
+  --pageBackgroundImgOpacity: 0.5;
+}
+html,
+body,
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+html {
+  /*height: 100%;*/
+  width: 100%;
+  /*overflow: hidden;*/
+}
+body {
+  width: 100%;
+  /*min-height: 100%;*/
+  background-color: var(--pageBackgroundColor);
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-shadow: 4px 2px 4px var(--pageBackgroundColor);
+  /*display: flex;*/
+  /*flex-direction: column;*/
+}
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, var(--pageBackgroundImgOpacity));
+  z-index: -1;
+}
+#root {
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Prevent main from scrolling */
+}
+.form-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Prevent main from scrolling */
+}
+.content {
+  /*flex: 1;*/
+  overflow-y: auto; /* Allow content to scroll when needed */
+  padding: 10px;
+}
+.scroll-hover {
+  /* TODO not working on iPad - we don't have hover states */
+  /*overflow: hidden;*/
+}
+.scroll-hover:hover {
+  overflow-y: auto;
+}
+.row {
+  flex-direction: row;
+}
+.fit {
+  flex: 1;
+}
+#slides {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  /*border: 1px solid #999;*/
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow-y: auto; /* Allow content to scroll when needed */
+}
+#slides img {
+  width: 100px;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.3;
+  transition: 0.5s;
+}
+#slides img.active {
+  opacity: 0.8;
+  border-color: #24ae01;
+}
+#slides img:hover {
+  opacity: 0.6;
+  border-color: #fff;
+}

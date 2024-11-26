@@ -1,0 +1,16 @@
+#clock {
+  font-size: 22vw;
+  font-weight: bold;
+  position: absolute;
+  color: #24ae01;
+  margin: 0;
+  padding: 10px;
+  line-height: 25vw;
+  font-family: "Helvetica Neue", sans-serif;
+  transition: 0.4s;
+  bottom: 10px;
+  right: 10px;
+  /*opacity: 0.8;*/
+  text-shadow: 6px 3px 6px var(--pageBackgroundColor);
+  /*background-color: rgba(0, 0, 0, var(--pageBackgroundImgOpacity));*/
+}

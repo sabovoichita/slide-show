@@ -1,0 +1,26 @@
+{
+  "name": "local-slide-show",
+  "version": "1.0.0",
+  "description": "Slide Show using local photos",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf node_modules",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --server --files '**/*'"
+  },
+  "keywords": [
+    "web",
+    "html",
+    "slide",
+    "show"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmatei/local-slide-show.git"
+  },
+  "author": "Nicolae Matei",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^3.0.2"
+  }
+}
