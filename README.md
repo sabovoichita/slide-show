@@ -8,7 +8,8 @@ Feel free to upload your photos and give it a try
 
 To do that please clone this repository using :
 
-```git clone https://github.com/sabovoichita/slide-show.git
+```
+git clone https://github.com/sabovoichita/slide-show.git
 
 ```
 
