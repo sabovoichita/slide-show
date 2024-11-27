@@ -1,18 +1,15 @@
-#clock {
+.clock {
   font-size: 22vw;
   font-weight: bold;
   position: absolute;
-  color: #05859e;
-  /*color: #24ae01;*/
+  color: var(--clockColor);
   margin: 0;
   padding: 10px;
   line-height: 25vw;
   font-family: "Helvetica Neue", sans-serif;
-  transition: 0.4s;
+  transition: 1.4s;
   bottom: 10px;
   right: 10px;
-  text-shadow:
-    /*6px 3px 6px var(--pageBackgroundColor),*/ 6px 3px 6px #013642, -1px -1px 1px #013642,
-    1px -1px 1px #013642;
-  /* make shadow bigger */
+  text-shadow: 6px 3px 6px var(--clockShadowColor), 1px 1px 1px var(--clockShadowColor),
+    1px -1px 1px var(--clockShadowColor), -1px -1px 1px var(--clockShadowColor), -1px 1px 1px var(--clockShadowColor);
 }

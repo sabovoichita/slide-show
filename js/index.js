@@ -61,38 +61,64 @@ const slidesConfig = {
   minOpacity: 0,
   maxOpacity: 1,
   opacityIntervals: {
+    0: 1,
     5: 0.9,
     6: 0.5,
     7: 0.4,
     8: 0.2,
-    9: 0,
+    9: 0.0,
     18: 0.3,
     20: 0.5,
     21: 0.7,
-    22: 0.9
+    22: 0.9,
+    23: 1
+  },
+  clockColorsIntervals: {
+    0: "#000000",
+    5: "#000000",
+    6: "#05859e",
+    7: "#05859e",
+    8: "#05859e",
+    9: "#05859e",
+    18: "#05859e",
+    20: "#05859e",
+    21: "#05859e",
+    22: "#05859e",
+    23: "#000000"
   }
 };
 
-function updateOpacity() {
-  const config = slidesConfig;
+function getIntervalValue(intervals) {
+  const keys = Object.keys(intervals);
+  const firstIntervalHour = keys[0];
+  var value = intervals[firstIntervalHour];
   const date = new Date();
-  const firstIntervalHour = Object.keys(config.opacityIntervals)[0];
-  var opacity = slidesConfig.opacityIntervals[firstIntervalHour];
   const hour = date.getHours();
-  Object.keys(config.opacityIntervals).forEach(function (key) {
+  keys.forEach(function (key) {
     if (hour >= key) {
-      opacity = config.opacityIntervals[key];
+      value = intervals[key];
     }
   });
+  return value;
+}
+
+function updateOpacity() {
+  const root = document.documentElement;
+  const config = slidesConfig;
+  var opacity = getIntervalValue(config.opacityIntervals);
   opacity = Math.min(config.maxOpacity, Math.max(config.minOpacity, opacity));
-  console.debug("opacity for hour %o = %o", hour, opacity);
   // modern browsers support CSS variables change
-  document.documentElement.style.setProperty("--pageBackgroundImgOpacity", opacity);
+  root.style.setProperty("--pageBackgroundImgOpacity", opacity);
 
   if (oldBrowser) {
     //console.warn("Safari detected", navigator.userAgent);
     setBodyBeforeBackgroundColor("body::before", `rgba(0, 0, 0, ${opacity})`);
   }
+
+  //document.documentElement.style.setProperty("--clockColor", "#05859e00");
+  // $("#clock").style.color = shadeColor("#05859e", -Math.max(0, opacity - 0.1) * 100);
+  $("#clock").style.color = getIntervalValue(config.clockColorsIntervals);
+
   return opacity;
 }
 
@@ -233,6 +259,7 @@ function initEvents() {
       actions.classList.remove("expanded");
       actions.classList.add("collapsed");
     }
+    // TODO remove focus from the button
   });
 
   const clock = startClock();
