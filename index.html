@@ -15,13 +15,15 @@
   <body>
     <div id="root">
       <div class="form-body row">
-        <div class="content scroll-hover">
-          <div id="slides"></div>
+        <div id="scroller-wrapper" class="content scroll-hover">
+          <div id="slides-wrapper" class="expanded">
+            <div id="slides"></div>
+          </div>
         </div>
         <div class="fit"></div>
       </div>
     </div>
-    <div id="actions" class="actions">
+    <div id="actions" class="actions expanded">
       <input id="upload" type="file" accept="image/*" multiple style="display: none" />
       <div class="actions collapsable-actions">
         <button id="browse" class="icon action-btn"></button>

@@ -35,5 +35,3 @@ function $(selector, parent) {
 function $$(selector, parent) {
   return Array.from((parent || document).querySelectorAll(selector));
 }
-
-console.debug("utils.js loaded");

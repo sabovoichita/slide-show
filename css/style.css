@@ -26,7 +26,9 @@ body {
   /*min-height: 100%;*/
   background-color: var(--pageBackgroundColor);
   color: #fff;
-  background-size: cover;
+  /* TODO config ? */
+  /*background-size: cover;*/
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   text-shadow: 2px 1px 2px var(--pageBackgroundColor);
@@ -89,10 +91,20 @@ body::before {
   flex-direction: row;
 }
 
+.form-body.row {
+  /* Space for smaller scroll */
+  padding-bottom: 60px;
+}
+
 .fit {
   flex: 1;
 }
 
+#slides-wrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
 #slides {
   flex: 1;
   display: flex;
@@ -109,12 +121,12 @@ body::before {
   margin: 2px;
   cursor: pointer;
   border: 2px solid transparent;
-  opacity: 0.2;
+  opacity: 0.6;
   transition: 0.5s;
 }
 
 #slides img.active {
-  opacity: 0.4;
+  opacity: 1;
   border-color: #3e3e3e55;
 }
 
@@ -159,10 +171,20 @@ body::before {
   }
 }
 
-.collapsed .collapsable-actions {
+#actions.collapsed .collapsable-actions {
   animation: slideLeft 0.5s forwards;
 }
-.expanded .collapsable-actions {
+#actions.expanded .collapsable-actions {
+  animation: slideRight 0.5s forwards;
+}
+
+#scroller-wrapper.collapsed {
+  overflow: hidden;
+}
+#slides-wrapper.collapsed {
+  animation: slideLeft 0.5s forwards;
+}
+#slides-wrapper.expanded {
   animation: slideRight 0.5s forwards;
 }
 

@@ -33,5 +33,3 @@ function changeClock() {
     config.timeout = setTimeout(changeClock, (60 - date.getSeconds()) * 1000);
   }
 }
-
-console.debug("clock.js loaded");
