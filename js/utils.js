@@ -1,3 +1,6 @@
+// for local use only (when testing)
+// console.debug = console.info = console.warn = console.error = console.log = log;
+
 window.onerror = function (message, source, lineno, colno, error) {
   console.warn(
     `Error: ${message}\nSource: ${source}\nLine: ${lineno}\nColumn: ${colno}\nError object: ${JSON.stringify(error)}`
@@ -30,5 +33,7 @@ function $(selector, parent) {
 }
 
 function $$(selector, parent) {
-  return [...(parent || document).querySelectorAll(selector)];
+  return Array.from((parent || document).querySelectorAll(selector));
 }
+
+console.log("utils.js loaded");
