@@ -57,7 +57,7 @@ function addImage(src) {
 const slidesConfig = {
   changeImageMinutes: 60,
   minOpacity: 0,
-  maxOpacity: 0.8,
+  maxOpacity: 1,
   opacityIntervals: {
     5: 0.9,
     6: 0.5,
