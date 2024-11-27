@@ -18,7 +18,9 @@ function startClock(showSeconds) {
     document.body.appendChild(config.clockEl);
   }
   changeClock();
+  return config;
 }
+
 function changeClock() {
   const config = clockConfig;
   const date = new Date();
@@ -30,4 +32,4 @@ function changeClock() {
   }
 }
 
-console.warn("clock.js loaded");
+console.debug("clock.js loaded");

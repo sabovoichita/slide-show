@@ -98,23 +98,25 @@ body::before {
   display: flex;
   flex-direction: column;
   padding: 2px;
-  /*border: 1px solid #999;*/
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.2);
   overflow-y: auto; /* Allow content to scroll when needed */
 }
 
 #slides img {
-  width: 100px;
+  width: 80px;
   border-radius: 4px;
   margin: 2px;
   cursor: pointer;
   border: 2px solid transparent;
-  opacity: 0.3;
+  opacity: 0.2;
   transition: 0.5s;
 }
 
 #slides img.active {
-  opacity: 0.8;
-  border-color: #24ae01;
+  opacity: 0.4;
+  border-color: #3e3e3e55;
+}
+.old-browser .action-btn {
+  margin: 5px; /* Add space between buttons instead of gap: 10px; */
 }

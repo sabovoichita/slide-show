@@ -36,4 +36,4 @@ function $$(selector, parent) {
   return Array.from((parent || document).querySelectorAll(selector));
 }
 
-console.log("utils.js loaded");
+console.debug("utils.js loaded");
