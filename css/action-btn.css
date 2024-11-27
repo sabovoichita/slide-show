@@ -13,7 +13,8 @@
   flex: 1;
 }
 .action-btn {
-  background-color: transparent;
+  /*background-color: #00000088;*/ /* iOs 9_3_6 does not support it */
+  background-color: rgba(0, 0, 0, 0.5);
   display: inline-block;
   cursor: pointer;
   min-width: 40px;
