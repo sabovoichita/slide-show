@@ -44,7 +44,7 @@ body::before {
 
 #logs {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 5px;
   padding: 10px;
   font-size: 12px;
@@ -118,7 +118,54 @@ body::before {
   border-color: #3e3e3e55;
 }
 
+#collapse {
+  transition: 0.5s;
+}
+#actions .action-btn {
+  min-height: 43px;
+}
 /*.old-browser .action-btn {*/
 .action-btn {
   margin: 5px; /* Add space between buttons instead of gap: 10px; */
+}
+
+.action-btn:disabled {
+  cursor: default;
+  color: #cccccc40;
+  border-color: #cccccc40;
+}
+.action-btn:disabled svg {
+  fill: #cccccc40;
+}
+
+.collapsable-actions {
+  overflow: hidden;
+}
+
+@keyframes slideLeft {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+@keyframes slideRight {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.collapsed .collapsable-actions {
+  animation: slideLeft 0.5s forwards;
+}
+.expanded .collapsable-actions {
+  animation: slideRight 0.5s forwards;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }

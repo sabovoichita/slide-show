@@ -31,12 +31,11 @@
   -webkit-appearance: none;
   font-family: "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
 }
-.actions .action-btn:hover {
+.actions .action-btn:hover:not(:disabled) {
   border-color: #eeeeee;
   color: #cccccc90;
 }
-.actions .action-btn.active,
-.actions .action-btn:active {
+.actions .action-btn:active:not(:disabled) {
   border-color: #ffffff;
   color: #eeeeee;
   transition: none;
