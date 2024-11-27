@@ -125,9 +125,10 @@ function displayNextImage() {
     next.classList.add("active");
     next.scrollIntoView({ behavior: "smooth" });
     setBackground(next.src);
-    updateOpacity();
-    setTimeout(displayNextImage, getNextChangeTimeout());
   }
+  // if there is no active image we still have to update the opacity
+  updateOpacity();
+  setTimeout(displayNextImage, getNextChangeTimeout());
 }
 
 function removeActive() {
