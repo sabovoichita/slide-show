@@ -4,8 +4,7 @@
   --rootPaddingBottom: 5px;
   --rootPaddingLeft: 5px;
   --pageBackgroundColor: #000;
-  /*--pageBackgroundImgOpacity: 0;*/
-  --pageBackgroundImgOpacity: 0.5;
+  --pageBackgroundImgOpacity: 0;
 }
 
 html,
@@ -32,7 +31,7 @@ body {
   /*display: flex;*/
   /*flex-direction: column;*/
 }
-body:before {
+body::before {
   content: "";
   position: absolute;
   top: 0;
@@ -77,6 +76,7 @@ body:before {
   overflow-y: auto; /* Allow content to scroll when needed */
   padding: 10px;
 }
+
 .scroll-hover {
   /* TODO not working on iPad - we don't have hover states */
   /*overflow: hidden;*/
@@ -84,12 +84,15 @@ body:before {
 .scroll-hover:hover {
   overflow-y: auto;
 }
+
 .row {
   flex-direction: row;
 }
+
 .fit {
   flex: 1;
 }
+
 #slides {
   flex: 1;
   display: flex;
@@ -100,6 +103,7 @@ body:before {
   background-color: rgba(0, 0, 0, 0.2);
   overflow-y: auto; /* Allow content to scroll when needed */
 }
+
 #slides img {
   width: 100px;
   border-radius: 4px;
@@ -109,11 +113,8 @@ body:before {
   opacity: 0.3;
   transition: 0.5s;
 }
+
 #slides img.active {
   opacity: 0.8;
   border-color: #24ae01;
-}
-#slides img:hover {
-  opacity: 0.6;
-  border-color: #fff;
 }

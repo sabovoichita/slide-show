@@ -1,4 +1,4 @@
-//REgister the sevice worker
+// Register the service worker
 if ("serviceWorker" in navigator) {
   console.log("Service Worker %o", "is supported");
   window.addEventListener("load", function () {
@@ -14,6 +14,7 @@ if ("serviceWorker" in navigator) {
 } else {
   console.log("Service Worker %o", "not supported");
 }
+
 function setBackground(background) {
   $("body").style.backgroundImage = `url(${background})`;
 }
@@ -33,6 +34,7 @@ function appendFiles(newFiles) {
     console.warn("Error appending files to local storage: %o", e);
   }
 }
+
 function addImage(src) {
   const img = new Image();
   img.src = src;
@@ -45,14 +47,15 @@ const slidesConfig = {
   minOpacity: 0,
   maxOpacity: 0.8,
   opacityIntervals: {
-    6: 0.8,
-    7: 0.7,
+    5: 0.9,
+    6: 0.5,
+    7: 0.4,
     8: 0.2,
     9: 0,
     18: 0.3,
     20: 0.5,
     21: 0.7,
-    22: 0.8
+    22: 0.9
   }
 };
 
@@ -68,10 +71,32 @@ function updateOpacity() {
     }
   });
   opacity = Math.min(config.maxOpacity, Math.max(config.minOpacity, opacity));
-  console.debug("opacity for hour %o = %o.", hour, opacity);
+  console.debug("opacity for hour %o = %o", hour, opacity);
+  // modern browsers support CSS variables change
   document.documentElement.style.setProperty("--pageBackgroundImgOpacity", opacity);
+
+  // check if navigator is safari and check version (find if os is ios9)
+  if (navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 9_\d/i)) {
+    //console.warn("Safari detected", navigator.userAgent);
+    setBodyBeforeBackgroundColor("body::before", `rgba(0, 0, 0, ${opacity})`);
+  }
   return opacity;
 }
+
+// old browsers support
+function setBodyBeforeBackgroundColor(selector, color) {
+  const sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    const rules = sheets[i].cssRules || sheets[i].rules;
+    for (var j = 0; j < rules.length; j++) {
+      if (rules[j].selectorText === selector) {
+        rules[j].style.backgroundColor = color;
+        return;
+      }
+    }
+  }
+}
+
 function getNextChangeTimeout() {
   const date = new Date();
   const minutes = slidesConfig.changeImageMinutes;
@@ -93,6 +118,7 @@ function displayNextImage() {
     setTimeout(displayNextImage, getNextChangeTimeout());
   }
 }
+
 function removeActive() {
   const active = $("#slides img.active");
   if (active) {
@@ -102,6 +128,7 @@ function removeActive() {
 
 function initEvents() {
   //storeBigFiles([]);
+
   const files = JSON.parse(localStorage.getItem("files")) || [];
   files.forEach(function (file, i) {
     const img = addImage(file);
@@ -110,6 +137,7 @@ function initEvents() {
       setBackground(file);
     }
   });
+
   $("input").addEventListener("change", function (event) {
     const files = Array.from(event.target.files);
     files.forEach(function (file, i) {
@@ -133,6 +161,7 @@ function initEvents() {
       reader.readAsDataURL(file); // Read the file as a data URL
     });
   });
+
   $("#slides").addEventListener("click", function (event) {
     if (event.target.closest("img")) {
       setBackground(event.target.src, true);
@@ -142,6 +171,7 @@ function initEvents() {
   });
 
   $("#clear").addEventListener("click", function () {
+    console.info("clear clicked");
     const confirmed = confirm("Are you sure you want to clear all images?");
     if (confirmed) {
       localStorage.removeItem("files");
@@ -150,10 +180,12 @@ function initEvents() {
       });
     }
   });
+
   updateOpacity();
   setTimeout(displayNextImage, getNextChangeTimeout());
 }
 
 console.warn("index.js loaded");
 initEvents();
+
 startClock();
