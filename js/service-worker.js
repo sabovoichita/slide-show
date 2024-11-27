@@ -6,8 +6,11 @@ const OFFLINE_ASSETS = [
   "/",
   "/index.html",
   "/manifest.json",
+  // css
+  "/css/action-btn.css",
   "/css/clock.css",
   "/css/style.css",
+  // js
   "/js/clock.js",
   "/js/index.js",
   "/js/utils.js"
