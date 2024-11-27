@@ -5,9 +5,24 @@ window.onerror = function (message, source, lineno, colno, error) {
   return false; // Returning false will suppress the default browser error message
 };
 
+function createLogsEl() {
+  const el = document.createElement("div");
+  el.id = "logs";
+  document.body.appendChild(el);
+  return el;
+}
+
 function log() {
-  var msg = Array.from(arguments).join(" ");
-  $("#logs").innerHTML += msg + "<br>";
+  const messages = Array.from(arguments);
+  if (typeof messages[0] === "string") {
+    while (messages[0].includes("%o")) {
+      messages[0] = messages[0].replace("%o", `<span>'${messages[1]}'</span>`);
+      messages.splice(1, 1);
+    }
+  }
+  const msg = messages.join(" ");
+  const el = $("#logs") || createLogsEl();
+  el.innerHTML += msg + "<br>";
 }
 
 function $(selector, parent) {

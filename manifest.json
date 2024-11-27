@@ -1,14 +1,14 @@
 {
   "name": "Local Slide Show",
   "short_name": "SlideShow",
-  "start_url": "/",
+  "start_url": "/local-slide-show",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "192x192",
+      "sizes": "32x32",
       "type": "image/png"
     }
   ]

@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slide Show</title>
+    <link rel="shortcut icon" href="./images/logo.png" />
+    <link rel="apple-touch-icon" href="./images/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="stylesheet" href="./css/clock.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/action-btn.css" />
   </head>
   <body>
     <div id="root">
@@ -16,10 +20,10 @@
         </div>
         <div class="fit"></div>
       </div>
-      <div id="actions">
-        <input type="file" accept="image/*" multiple />
-        <div id="logs"></div>
-      </div>
+    </div>
+    <div id="actions" class="actions">
+      <input id="upload" type="file" accept="image/*" multiple />
+      <button id="clear" class="action-btn">✖️</button>
     </div>
     <script src="./js/utils.js"></script>
     <script src="./js/clock.js"></script>

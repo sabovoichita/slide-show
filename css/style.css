@@ -7,6 +7,7 @@
   /*--pageBackgroundImgOpacity: 0;*/
   --pageBackgroundImgOpacity: 0.5;
 }
+
 html,
 body,
 ul,
@@ -41,6 +42,23 @@ body:before {
   background-color: rgba(0, 0, 0, var(--pageBackgroundImgOpacity));
   z-index: -1;
 }
+
+#logs {
+  position: absolute;
+  bottom: 40px;
+  left: 5px;
+  padding: 10px;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  max-height: 20vh;
+  overflow-y: auto;
+}
+#logs span {
+  color: #5cd5fb;
+}
+
 #root {
   height: 100vh;
   flex: 1;

@@ -10,7 +10,5 @@
   transition: 0.4s;
   bottom: 10px;
   right: 10px;
-  /*opacity: 0.8;*/
   text-shadow: 6px 3px 6px var(--pageBackgroundColor);
-  /*background-color: rgba(0, 0, 0, var(--pageBackgroundImgOpacity));*/
 }
