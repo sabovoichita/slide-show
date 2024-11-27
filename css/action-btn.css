@@ -34,12 +34,18 @@
 }
 .actions .action-btn:hover:not(:disabled) {
   border-color: #eeeeee;
-  color: #cccccc90;
+  color: #eeeeee;
 }
+.actions .action-btn:hover:not(:disabled) svg {
+  fill: #eeeeee;
+}
+.actions .action-btn.active,
 .actions .action-btn:active:not(:disabled) {
   border-color: #ffffff;
   color: #eeeeee;
-  transition: none;
+}
+.actions .action-btn:active:not(:disabled) svg {
+  fill: #ffffff;
 }
 
 .action-btn:focus,

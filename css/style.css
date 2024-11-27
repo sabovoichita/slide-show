@@ -167,5 +167,5 @@ body::before {
 }
 
 .rotate-180 {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
