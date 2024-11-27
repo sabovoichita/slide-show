@@ -6,7 +6,8 @@
 }
 .actions {
   display: flex;
-  gap: 10px;
+  /* not supported in all browsers - replaced with margin */
+  /*gap: 10px;*/
 }
 .actions .fill {
   flex: 1;

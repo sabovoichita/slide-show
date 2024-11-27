@@ -117,6 +117,8 @@ body::before {
   opacity: 0.4;
   border-color: #3e3e3e55;
 }
-.old-browser .action-btn {
+
+/*.old-browser .action-btn {*/
+.action-btn {
   margin: 5px; /* Add space between buttons instead of gap: 10px; */
 }
