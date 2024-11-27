@@ -1,4 +1,5 @@
 const clockConfig = {
+  timeout: null,
   clockEl: null,
   showSeconds: false,
   displayChars: 8
@@ -11,10 +12,11 @@ function startClock(showSeconds) {
   }
   config.displayChars = config.showSeconds ? 8 : 5;
   if (config.clockEl) {
-    clearTimeout(config.t);
+    clearTimeout(config.timeout);
   } else {
     config.clockEl = document.createElement("div");
     config.clockEl.id = "clock";
+    config.clockEl.classList.add("clock");
     document.body.appendChild(config.clockEl);
   }
   changeClock();
@@ -26,9 +28,9 @@ function changeClock() {
   const date = new Date();
   config.clockEl.innerText = date.toTimeString().substring(0, config.displayChars);
   if (config.showSeconds) {
-    config.t = setTimeout(changeClock, 1000);
+    config.timeout = setTimeout(changeClock, 1000);
   } else {
-    config.t = setTimeout(changeClock, (60 - date.getSeconds()) * 1000);
+    config.timeout = setTimeout(changeClock, (60 - date.getSeconds()) * 1000);
   }
 }
 

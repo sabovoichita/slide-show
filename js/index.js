@@ -59,6 +59,7 @@ function addImage(src) {
 }
 
 const slidesConfig = {
+  timeout: null,
   changeImageMinutes: 60,
   minOpacity: 0,
   maxOpacity: 1,
@@ -158,7 +159,13 @@ function displayNextImage() {
   }
   // if there is no active image we still have to update the opacity
   updateOpacity();
-  setTimeout(displayNextImage, getNextChangeTimeout());
+  const config = slidesConfig;
+  if (config.timeout) {
+    // TODO test with 1 min and remove one picture
+    console.warn("Clearing timeout %o", config.timeout);
+    clearTimeout(config.timeout);
+  }
+  config.timeout = setTimeout(displayNextImage, getNextChangeTimeout());
 }
 
 function removeActive() {
@@ -240,6 +247,7 @@ function initEvents() {
           localStorage.setItem("files", JSON.stringify(files));
           displayNextImage();
         }
+        // TODO check why when remove image and actions UI seems broken (bigger buttons)
         active.remove();
       }
     }
